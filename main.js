@@ -30,10 +30,10 @@ export default async({ req, res, log, error }) => {
         queries: [Query.equal("email", email)],
       });    
     } catch (error) {
-      let appwriteUser =  await users.create({
+      let appwriteUser =  await account.create({
         ID.unique(),
         email,
-        undefined,
+        "JSJSHJSJHSGJSHGSHJSG8989",
         name
       })
 
