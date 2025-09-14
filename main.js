@@ -11,8 +11,11 @@ export default async ({ req, res, log, error }) => {
   const users = new Users(client);
 
   try {
+    log(process.env.PROJECT_ID)
+    log(process.env.DB_ID)
+    log(process.env.USER_COLLECTION_ID)
     log("Incoming request body: " + req.body);
-
+    
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
     log("Parsed body: " + JSON.stringify(body, null, 2));
 
