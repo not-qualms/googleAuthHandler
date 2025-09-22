@@ -49,7 +49,7 @@ export default async ({ req, res, log, error }) => {
         email,
         "TempPassword123!",
         name,
-        "+233548907689" 
+        null
       );
       log("New Appwrite user created: " + JSON.stringify(appwriteUser, null, 2));
 
