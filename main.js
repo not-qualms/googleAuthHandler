@@ -1,4 +1,6 @@
 import { Client, Account, Databases, Users, ID, Query } from 'node-appwrite';
+import pkg from "node-appwrite/package.json" assert { type: "json" };
+
 
 export default async ({ req, res, log, error }) => {
   const client = new Client()
@@ -11,6 +13,7 @@ export default async ({ req, res, log, error }) => {
   const users = new Users(client);
 
   try {
+    log("node-appwrite version: " + pkg.version);
     log(process.env.PROJECT_ID)
     log(process.env.DB_ID)
     log(process.env.USER_COLLECTION_ID)
