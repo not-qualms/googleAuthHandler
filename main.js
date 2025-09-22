@@ -68,10 +68,7 @@ export default async ({ req, res, log, error }) => {
       log("New user document created: " + JSON.stringify(doc, null, 2));
     }
 
-    const jwt = await account.createJWT();
-    log("Generated JWT: " + JSON.stringify(jwt, null, 2));
-
-    return res.json({ jwt, user: appwriteUser });
+    return res.json({ user: appwriteUser });
 
   } catch (err) {
     log("Caught error: " + err.message);
