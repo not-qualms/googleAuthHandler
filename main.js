@@ -1,8 +1,5 @@
 import { Client, Account, Databases, Users, ID, Query } from 'node-appwrite';
 
-
-
-
 export default async ({ req, res, log, error }) => {
   const client = new Client()
     .setEndpoint('https://sfo.cloud.appwrite.io/v1')
@@ -14,6 +11,7 @@ export default async ({ req, res, log, error }) => {
   const users = new Users(client);
 
   try {
+
     log(process.env.PROJECT_ID)
     log(process.env.DB_ID)
     log(process.env.USER_COLLECTION_ID)
@@ -51,7 +49,7 @@ export default async ({ req, res, log, error }) => {
         email,
         "TempPassword123!",
         name,
-        phone: "+233544235865"
+        phone: "+233548907689" 
       );
       log("New Appwrite user created: " + JSON.stringify(appwriteUser, null, 2));
 
