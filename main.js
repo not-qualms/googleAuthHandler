@@ -1,7 +1,5 @@
 import { Client, Account, Databases, Users, ID, Query } from 'node-appwrite';
-import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
-import path from "path";
+
 
 
 
@@ -10,15 +8,12 @@ export default async ({ req, res, log, error }) => {
     .setEndpoint('https://sfo.cloud.appwrite.io/v1')
     .setProject(process.env.PROJECT_ID)
     .setKey(process.env.API_KEY);
-const pkgPath = fileURLToPath(import.meta.resolve("node-appwrite/package.json"));
-const version = JSON.parse(readFileSync(pkgPath, "utf-8")).version;
 
   const account = new Account(client);
   const database = new Databases(client);
   const users = new Users(client);
 
   try {
-    log("node-appwrite version: " + version);
     log(process.env.PROJECT_ID)
     log(process.env.DB_ID)
     log(process.env.USER_COLLECTION_ID)
@@ -55,7 +50,8 @@ const version = JSON.parse(readFileSync(pkgPath, "utf-8")).version;
         ID.unique(),
         email,
         "TempPassword123!",
-        name
+        name,
+        phone: "+233544235865"
       );
       log("New Appwrite user created: " + JSON.stringify(appwriteUser, null, 2));
 
