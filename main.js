@@ -47,8 +47,8 @@ export default async ({ req, res, log, error }) => {
       appwriteUser = await users.create(
         ID.unique(),
         email,
-        null,
-        null,
+        undefined,
+        undefined,
         name
       );
       log("New Appwrite user created: " + JSON.stringify(appwriteUser, null, 2));
